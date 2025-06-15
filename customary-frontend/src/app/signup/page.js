@@ -70,8 +70,16 @@ export default function SignUp() {
       <section className="max-w-md mx-auto mt-16 p-8 bg-white rounded-2xl shadow-lg">
         <h1 className="text-3xl font-extrabold mb-8 text-blue-700 text-center">Sign Up</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {error && <div className="bg-red-100 text-red-700 px-4 py-2 rounded">{error}</div>}
-          {success && <div className="bg-green-100 text-green-700 px-4 py-2 rounded">{success}</div>}
+          {error && (
+            <div className="bg-red-100 text-red-700 px-4 py-2 rounded">
+              {error.replace(/'/g, "&apos;")}
+            </div>
+          )}
+          {success && (
+            <div className="bg-green-100 text-green-700 px-4 py-2 rounded">
+              {success.replace(/'/g, "&apos;")}
+            </div>
+          )}
           <div>
             <label htmlFor="name" className="block font-semibold mb-1 text-blue-700">Full Name</label>
             <input
