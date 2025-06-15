@@ -16,7 +16,7 @@ export default function ProtectedRoute({ children }) {
     if (!user && !publicPaths.includes(pathname)) {
       router.push('/login');
     }
-  }, [user, pathname, router]);
+  }, [user, pathname, router, publicPaths]); // Added publicPaths to dependencies
 
   // Optionally show a loading or redirecting message
   if (!user && !publicPaths.includes(pathname)) {

@@ -97,7 +97,7 @@ export default function RegisterNoPayment() {
         <form onSubmit={handleSubmit} className="space-y-7" encType="multipart/form-data">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="husbandName" className="block font-semibold mb-1 text-blue-700">Husband's Full Name</label>
+              <label htmlFor="husbandName" className="block font-semibold mb-1 text-blue-700">Husband&apos;s Full Name</label>
               <input
                 type="text"
                 id="husbandName"
@@ -109,7 +109,7 @@ export default function RegisterNoPayment() {
               />
             </div>
             <div>
-              <label htmlFor="husbandIdCard" className="block font-semibold mb-1 text-blue-700">Husband's ID Card</label>
+              <label htmlFor="husbandIdCard" className="block font-semibold mb-1 text-blue-700">Husband&apos;s ID Card</label>
               <input
                 type="file"
                 id="husbandIdCard"
@@ -121,7 +121,7 @@ export default function RegisterNoPayment() {
               />
             </div>
             <div>
-              <label htmlFor="wifeName" className="block font-semibold mb-1 text-blue-700">Wife's Full Name</label>
+              <label htmlFor="wifeName" className="block font-semibold mb-1 text-blue-700">Wife&apos;s Full Name</label>
               <input
                 type="text"
                 id="wifeName"
@@ -133,7 +133,7 @@ export default function RegisterNoPayment() {
               />
             </div>
             <div>
-              <label htmlFor="wifeIdCard" className="block font-semibold mb-1 text-blue-700">Wife's ID Card</label>
+              <label htmlFor="wifeIdCard" className="block font-semibold mb-1 text-blue-700">Wife&apos;s ID Card</label>
               <input
                 type="file"
                 id="wifeIdCard"
