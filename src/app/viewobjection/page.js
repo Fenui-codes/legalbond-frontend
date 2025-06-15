@@ -1,0 +1,62 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Navbar from '../components/Navbar';
+
+export default function ObjectedMarriages() {
+  const [marriages, setMarriages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/marriages?status=objected')
+      .then(res => res.json())
+      .then(data => {
+        setMarriages(Array.isArray(data) ? data : data.data || []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  return (
+    <main className="min-h-screen bg-gray-50 text-gray-800">
+      <Navbar />
+      <section className="max-w-4xl mx-auto mt-12 p-8 bg-white rounded shadow">
+        <h1 className="text-3xl font-bold mb-6 text-red-600">Objected Marriages</h1>
+        {loading ? (
+          <p>Loading...</p>
+        ) : marriages.length === 0 ? (
+          <p>No objected marriages found.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {marriages.map((m, i) => (
+              <div
+                key={m._id || i}
+                className="bg-red-50 rounded-xl shadow p-6 flex flex-col justify-between border border-red-200"
+              >
+                <div>
+                  <div className="mb-2">
+                    <span className="font-semibold text-blue-700">Husband:</span> {m.husbandName}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-semibold text-blue-700">Wife:</span> {m.wifeName}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-semibold">Date:</span> {m.marriageDate}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-semibold">Objections:</span> {m.objections?.length || 0}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-semibold">Status:</span> <span className="text-red-600">{m.status}</span>
+                  </div>
+                </div>
+                
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
