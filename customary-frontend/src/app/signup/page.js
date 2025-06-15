@@ -53,14 +53,14 @@ export default function SignUp() {
       const data = await res.json();
       if (!res.ok) {
         setError(data.error || 'Sign up failed.');
-      } else {
+      }/* else {
         setSuccess('Account created! Redirecting to login...');
         setForm({ name: '', email: '', password: '', confirmPassword: '' });
         setTimeout(() => router.push('/login'), 2000);
       }
     } catch (err) {
       setError('Network error. Please try again.');
-    }
+    }*/
     setLoading(false);
   };
 
